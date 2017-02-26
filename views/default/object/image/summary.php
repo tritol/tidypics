@@ -13,8 +13,8 @@ $image = elgg_extract('entity', $vars);
 $img = elgg_view_entity_icon($image, 'small');
 
 $img_title = $image->getTitle();
-if (strlen($img_title) > 20) {
-	$img_title = substr($img_title, 0, 17).'...';
+if (mb_strlen($img_title, 'UTF-8') > 20) {
+	$img_title = mb_substr($img_title, 0, 17, 'UTF-8').'...';
 }
 
 $header = elgg_view('output/url', array(
